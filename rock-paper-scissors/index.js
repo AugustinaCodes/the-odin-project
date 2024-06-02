@@ -1,20 +1,10 @@
-// writing code for the computer choice, so it randomly returns one of the following string values "rock", "paper", "scissors".
-
 function getComputerChoice(){
-    // first we need to put the choices in a variable, to store them somewhere. So put these strings in an array
     const choices = ["rock", "paper", "scissors"];
-
-    // Math.random returns a random number that's >= 0 and <1. If we want to get a number between 0 and 10, we need to multiply the answe by 10, eg Math.Random() * 10
-    // I'd also need to use Math.floor as it rounds a number down to an integer
-    // So I put choices[code]. The code inside calculates a number randomly, so the result displays always a random string from an array. 
 
     const result = choices[Math.floor(Math.random() * choices.length)];
     console.log(result);
     return result;
 }
-
-// console.log(getComputerChoice());
-
 
 function getHumanChoice(){
     const humanChoice = prompt("Rock, paper or scissors?");
@@ -22,36 +12,43 @@ function getHumanChoice(){
     return humanChoice.toLowerCase();
 }
 
-// console.log(getHumanChoice());
-
-const humanScore = 0;
-const computerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
 
 function playRound(humanChoice, computerChoice){
     if (humanChoice == "rock" && computerChoice == "paper") {
         console.log("You lose! Paper beats Rock");
-        computerChoice++;
+        computerScore++;
     } else if (humanChoice == "rock" && computerChoice == "scissors"){
         console.log("You win! Rock beats Scissors");
-        humanChoice++;
+        humanScore++;
     } else if (humanChoice == "paper" && computerChoice == "rock"){
         console.log("You win! Paper beats Rock");
-        humanChoice++;
+        humanScore++;
     } else if (humanChoice == "paper" && computerChoice == "scissors"){
         console.log("You lose! Scissors beats Paper");
-        computerChoice++;
+        computerScore++;
     } else if (humanChoice == "scissors" && computerChoice == "rock") {
         console.log("You lose! Rock beats Scissors");
-        computerChoice++;
+        computerScore++;
     } else if (humanChoice == "scissors" && computerChoice == "paper") {
         console.log("You win! Scissors beats Paper!");
-        humanChoice++;
+        humanScore++;
     } else {
         console.log("It's a draw!");
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
+function playGame(){
+    
+    for (let i = 0; i < 5; i++){
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
 
-playRound(humanSelection, computerSelection);
+    console.log("Human Score: " + humanScore);
+    console.log("Computer Score: " + computerScore);
+}
+
+playGame();
