@@ -9,16 +9,49 @@ function getComputerChoice(){
     // So I put choices[code]. The code inside calculates a number randomly, so the result displays always a random string from an array. 
 
     const result = choices[Math.floor(Math.random() * choices.length)];
-
+    console.log(result);
     return result;
 }
 
-console.log(getComputerChoice());
+// console.log(getComputerChoice());
 
 
 function getHumanChoice(){
     const humanChoice = prompt("Rock, paper or scissors?");
-    return humanChoice;
+    console.log(humanChoice);
+    return humanChoice.toLowerCase();
 }
 
-console.log(getHumanChoice());
+// console.log(getHumanChoice());
+
+const humanScore = 0;
+const computerScore = 0;
+
+function playRound(humanChoice, computerChoice){
+    if (humanChoice == "rock" && computerChoice == "paper") {
+        console.log("You lose! Paper beats Rock");
+        computerChoice++;
+    } else if (humanChoice == "rock" && computerChoice == "scissors"){
+        console.log("You win! Rock beats Scissors");
+        humanChoice++;
+    } else if (humanChoice == "paper" && computerChoice == "rock"){
+        console.log("You win! Paper beats Rock");
+        humanChoice++;
+    } else if (humanChoice == "paper" && computerChoice == "scissors"){
+        console.log("You lose! Scissors beats Paper");
+        computerChoice++;
+    } else if (humanChoice == "scissors" && computerChoice == "rock") {
+        console.log("You lose! Rock beats Scissors");
+        computerChoice++;
+    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+        console.log("You win! Scissors beats Paper!");
+        humanChoice++;
+    } else {
+        console.log("It's a draw!");
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
