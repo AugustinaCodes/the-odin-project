@@ -68,3 +68,12 @@ console.log(`replace(): ${text9.replace("Microsoft", "W3Schools")}`);
 let text10 = "Please visit Microsoft and Microsoft!"
 console.log(`replace() all: ${text10.replace(/Microsoft/g, "W3Schools")}`);
 
+// replaceAll()
+let text11 = "I love cats. Cats are very easy to love. Cats are very popular."
+text11 = text11.replaceAll("cats", "dogs")
+text11 = text11.replaceAll("Cats", "Dogs")
+console.log(`replaceAll(): ${text11}`);
+
+// split() can convert string to an array
+console.log(`split(): ${text11.split(" ")}`);
+
