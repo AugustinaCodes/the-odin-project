@@ -95,10 +95,51 @@ for (let s = 0; s < 3; s++){
 
 let a = -1;
 while (++a < 3) alert (`number ${a}!`)
-// 0, 1, 2, 
+// 0, 1, 2,
 // or this is also correct:
 // let i = 0;
 // while(i < 3) {
 // alert(i)
 // i++
 // }
+
+// Repeat until the input is correct
+/**
+ * Write a loop which prompts for a number greater than 100. If the visitor enters another number – ask them to input again.
+
+The loop must ask for a number until either the visitor enters a number greater than 100 or cancels the input/enters an empty line.
+
+Here we can assume that the visitor only inputs numbers. There’s no need to implement a special handling for a non-numeric input in this task.
+ */
+
+// here we can use the do while loop
+
+let num;
+
+do {
+    num = prompt("Enter a number greater than 100?", 0)
+} while (num <= 100 && num)
+
+// Output prime numbers
+/**
+ * An integer number greater than 1 is called a prime if it cannot be divided without a remainder by anything except 1 and itself.
+
+In other words, n > 1 is a prime if it can’t be evenly divided by anything except 1 and n.
+
+For example, 5 is a prime, because it cannot be divided without a remainder by 2, 3 and 4.
+
+Write the code which outputs prime numbers in the interval from 2 to n.
+
+For n = 10 the result will be 2,3,5,7.
+
+P.S. The code should work for any n, not be hard-tuned for any fixed value.
+ */
+
+let n = 10;
+
+nextPrime: for (let p = 2; p <= n; p++) { 
+  for (let v = 2; v < p; v++) { 
+    if (p % v === 0) continue nextPrime;
+  }
+  console.log(p);
+}
