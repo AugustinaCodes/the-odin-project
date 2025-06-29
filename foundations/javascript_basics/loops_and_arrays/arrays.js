@@ -90,3 +90,61 @@ function filterRangeInPlace(arr, a, b) {
 }
 filterRangeInPlace(arr, 1, 4);
 console.log(`filterRangeInPlace function: ${arr}`);
+
+// sort in decreasing order
+let arr2 = [5, 2, 1, -10, 8];
+arr2.sort((a, b) => b - a);
+console.log(`sorted array ${arr2}`);
+
+// copy and sort array
+/**
+ * We have an array of strings arr. We’d like to have a sorted copy of it, but keep arr unmodified.
+
+Create a function copySorted(arr) that returns such a copy.
+ */
+
+let arr3 = ["HTML", "JavaScript", "CSS"];
+let sorted = copySorted(arr3);
+
+function copySorted(arr) {
+  return arr.slice().sort();
+}
+
+console.log(sorted);
+console.log(arr3); //no changes
+
+// shuffle an array
+let arr4 = [1, 2, 3];
+
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
+console.log(shuffle(arr4));
+
+// filter unique array members
+let strings = [
+  "Hare",
+  "Krishna",
+  "Hare",
+  "Krishna",
+  "Krishna",
+  "Krishna",
+  "Hare",
+  "Hare",
+  ":-O",
+];
+
+function unique(arr) {
+  let result = [];
+
+  for (let str of arr) {
+    if (!result.includes(str)) {
+      result.push(str);
+    }
+  }
+
+  return result;
+}
+
+console.log(unique(strings));
