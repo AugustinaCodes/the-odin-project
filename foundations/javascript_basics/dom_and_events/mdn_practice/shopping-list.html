@@ -28,13 +28,34 @@
     <ul></ul>
 
     <script>
-        const list = document.querySelector("ul")
-        const input = document.querySelector("input")
-        const button = document.querySelector("button")
+      const list = document.querySelector("ul");
+      const input = document.querySelector("input");
+      const button = document.querySelector("button");
 
-        function buttonClick() {
-            const val = input
-        }
+      function buttonClick(e) {
+        let val = input;
+
+        const listItem = document.createElement("li");
+        const spanEl = document.createElement("span");
+        const newBtn = document.createElement("button");
+
+        listItem.appendChild(spanEl);
+        listItem.appendChild(newBtn);
+
+        spanEl.textContent = val.value;
+        val.value = "";
+        newBtn.textContent = "Delete";
+
+        list.appendChild(listItem);
+
+        newBtn.onclick = () => {
+          listItem.remove();
+        };
+
+        input.focus();
+      }
+
+      button.addEventListener("click", buttonClick);
     </script>
   </body>
 </html>
