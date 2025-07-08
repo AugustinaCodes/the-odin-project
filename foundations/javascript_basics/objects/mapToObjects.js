@@ -8,9 +8,10 @@ let mary = { name: "Mary", surname: "Key", id: 3 };
 
 let users = [ john, pete, mary ];
 
-let usersMapped = users.map(item => {
-    return fullName = ``
-})
+let usersMapped = users.map(user => ({
+    fullName: `${user.name} ${user.surname}`,
+    id: user.id
+}))
 
 /*
 usersMapped = [
